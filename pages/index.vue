@@ -1,14 +1,48 @@
 <template lang="pug">
-  v-layout(column justify-center align-center)
-    v-flex(xs12 sm8 md6)
-      p test
+  v-container
+    v-app-bar(fixed app flat color="#ff6a00")
+      v-row(justify="center" align="center")
+        v-toolbar-title
+          span.white--text SLEEVE IT
+    v-row(no-gutters)
+      v-col(cols="12" sm="6")
+        v-form
+          v-row
+            v-col
+              v-text-field(v-model="id" label="Username or email")
+          v-row
+            v-col
+              v-text-field(v-model="password" label="Password" type="password")
+          v-row
+            v-col
+              v-btn(color="black" :block="true" @click="submit")
+                span.white--text Log in
+          v-row
+            v-divider
+          v-row
+            v-col(align="center")
+              p OR
+          v-row
+            v-col
+              v-btn(color="blue" :block="true")
+                span.white--text Log in with Facebook
+          v-row
+            v-col
+              v-btn(color="red" :block="true")
+                span.white--text Log in with Google
 </template>
 
 <script>
 export default {
   data() {
     return {
-      data: true
+      id: '',
+      password: ''
+    }
+  },
+  methods: {
+    submit() {
+      this.$router.push('/host')
     }
   }
 }
