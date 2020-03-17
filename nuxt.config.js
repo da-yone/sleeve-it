@@ -26,7 +26,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [ '@/assets/css/style.scss' ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -60,8 +60,7 @@ export default {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['@/assets/variables.scss'],
-    treeShake: true,
+    treeShake: true
   },
   /*
    ** nuxt webfont module configuration

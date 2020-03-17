@@ -4,7 +4,7 @@
       v-row(justify="center" align="center")
         v-toolbar-title
           span.white--text SLEEVE IT
-    v-row(justify="center")
+    v-row.mt-6(justify="center")
       v-col(cols="11" sm="6")
         v-row(align="center" v-for="avatar in avatars" :key="avatar.id")
           v-col
@@ -14,11 +14,11 @@
             h3(align="center") {{count(avatar.id)}}
           v-col
             p(v-for="person in avatar.persons" :key="person") {{person}}
-        v-row
+        v-row.mt-6
           v-col
             v-btn(color="black" :block="true")
               span.white--text Download JPEG
-        v-row
+        v-row.mt-6
           v-col
             v-btn(to="/host/report" color="grey" :block="true")
               span.white--text Back

@@ -1,23 +1,23 @@
 <template lang="pug">
-  v-container.blue(fill-height)
+  v-container.blue.pt-12
     v-row(justify="center" no-gutters)
       v-col(cols="11" sm="4")
-        v-row
+        v-row.mt-12
           v-col
             h2.white--text
               | In the category,
               br
               | there are...
-        v-row
+        v-row.mt-12
           v-col(cols="4" v-for="avatar in avatars" :key="avatar")
             v-card(tile align="center")
               v-avatar(tile color="grey" width="100" height="100")
                 span 100
-        v-row(justify="center")
+        v-row.mt-12(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
               span.white--text Fine! Create a room
-        v-row(justify="center")
+        v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(to="/host/room" color="grey" :block="true" nuxt)
               span.white--text Back
