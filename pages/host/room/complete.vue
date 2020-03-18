@@ -27,7 +27,7 @@
               span.white--text Copy
         v-row(justify="center")
           v-col(cols="10")
-            v-btn(to="/host" color="grey" :block="true" nuxt)
+            v-btn(to="/" color="grey" :block="true" nuxt)
               span.white--text Top
 </template>
 

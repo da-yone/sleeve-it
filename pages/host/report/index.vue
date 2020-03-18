@@ -32,7 +32,7 @@ export default {
     submit () {
       this.$axios.$get('/sleeves/' + this.roomNo)
         .then((data) => {
-          this.$router.push('/host/report/result?roomId=' + this.roomNo)
+          this.$router.push({ path: '/host/report/result', query: { roomId: this.roomNo } })
         })
         .catch((error) => {
           console.log(error)

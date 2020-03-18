@@ -10,7 +10,7 @@
             v-text-field(v-model="roomNo" solo label="Room Number")
         v-row(justify="center")
           v-col(cols="10")
-            v-btn(to="/guest/nickname" color="black" :block="true" nuxt)
+            v-btn(color="black" :block="true" @click="submit")
               span.white--text Enter
 </template>
 
@@ -22,8 +22,14 @@ export default {
     }
   },
   methods: {
-    select (category) {
-      this.$router.push({ path: '/host/room/confirm', query: { category } })
+    submit (category) {
+      this.$axios.$get('/sleeves/' + this.roomNo)
+        .then((data) => {
+          this.$router.push({ path: '/guest/nickname', query: { roomId: this.roomNo } })
+        })
+        .catch((error) => {
+          alert('No room has been found.')
+        })
     }
   }
 }

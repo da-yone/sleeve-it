@@ -10,7 +10,7 @@
               | sleeved!
         v-row.mt-12(justify="center")
           v-col(cols="8")
-            v-btn(to="/guest" color="grey" :block="true" nuxt)
+            v-btn(to="/" color="grey" :block="true" nuxt)
               span.white--text Top
 </template>
 

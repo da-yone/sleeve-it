@@ -24,12 +24,8 @@
               p OR
           v-row
             v-col
-              v-btn(color="blue" :block="true")
-                span.white--text Log in with Facebook
-          v-row
-            v-col
-              v-btn(color="red" :block="true")
-                span.white--text Log in with Google
+              v-btn(to="/guest" color="blue" :block="true" nuxt)
+                span.white--text Guest
 </template>
 
 <script>

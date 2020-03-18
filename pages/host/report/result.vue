@@ -20,8 +20,8 @@
               span.white--text Download JPEG
         v-row
           v-col
-            v-btn(to="/host/report" color="grey" :block="true")
-              span.white--text Back
+            v-btn(to="/" color="grey" :block="true")
+              span.white--text TOP
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
     order () {
       this.data.forEach((d) => {
         this.avatars.forEach((a) => {
-          if (d.id === parseInt(a.avatar)) {
+          if (d.id === parseInt(a.avatarId)) {
             d.persons.push(a.nickName)
           }
         })

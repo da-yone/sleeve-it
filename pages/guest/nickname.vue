@@ -7,10 +7,10 @@
             h2.white--text SLEEVE IT
         v-row.mt-12(justify="center")
           v-col(cols="10" align="center")
-            v-text-field(v-model="nickname" solo label="Nickname")
+            v-text-field(v-model="nickName" solo label="Nickname")
         v-row(justify="center")
           v-col(cols="10")
-            v-btn(to="/guest/picture" color="black" :block="true" nuxt)
+            v-btn(color="black" :block="true" @click="submit")
               span.white--text Ready
 </template>
 
@@ -18,12 +18,15 @@
 export default {
   data () {
     return {
-      nickname: ''
+      nickName: ''
     }
   },
   methods: {
-    select (category) {
-      this.$router.push({ path: '/host/room/confirm', query: { category } })
+    submit (category) {
+      this.$router.push({
+        path: '/guest/picture',
+        query: { nickName: this.nickName, roomId: this.$route.query.roomId }
+      })
     }
   }
 }

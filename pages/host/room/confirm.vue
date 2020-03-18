@@ -35,7 +35,7 @@ export default {
     async submit () {
       await this.$axios.$post('/sleeves', { category: this.category })
         .then((data) => {
-          this.$router.push('/host/room/complete?roomId=' + data.roomId)
+          this.$router.push({ path: '/host/room/complete', query: { roomId: data.roomId } })
         })
     }
   }

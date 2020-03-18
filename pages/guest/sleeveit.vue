@@ -17,7 +17,7 @@
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
               span.white--text Sleeve It!
-        v-row.mt-3(justify="center")
+        v-row(justify="center")
           v-col(cols="10")
             v-btn(to="/guest/nickname" color="grey" :block="true" nuxt)
               span.white--text Back
@@ -25,14 +25,18 @@
 
 <script>
 export default {
-  data () {
-    return {
-      dummy: ''
-    }
-  },
   methods: {
     submit () {
-      this.$router.push('/guest/complete')
+      this.$axios.$patch('/sleeves/' + this.$route.query.roomId, {
+        nickName: this.$route.query.nickName,
+        avatarId: this.$route.query.avatarId
+      })
+      .then((data) => {
+        this.$router.push('/guest/complete')
+      })
+      .catch((error) => {
+        alert('Sorry something\'s wrong.')
+      })
     }
   }
 }

@@ -7,17 +7,17 @@
             h2.white--text
               | This picture
               br
-              | depicts how how I feel
+              | depicts how I feel
         v-row.mt-12
           v-col(cols="4" v-for="avatar in avatars" :key="avatar")
-            v-card(tile align="center")
+            v-card(tile align="center" @click="select(avatar)")
               v-avatar(tile color="grey" width="100" height="100")
                 span 100
         v-row.mt-12(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
               span.white--text Pick
-        v-row.mt-6(justify="center")
+        v-row(justify="center")
           v-col(cols="10")
             v-btn(to="/guest/nickname" color="grey" :block="true" nuxt)
               span.white--text Back
@@ -28,12 +28,27 @@ export default {
   data () {
     return {
       category: this.$route.query.category,
-      avatars: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+      avatars: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+      avatar: ''
     }
   },
   methods: {
+    select(avatar) {
+      this.avatar = avatar
+    },
     submit () {
-      this.$router.push('/guest/sleeveit')
+      if (!this.avatar) {
+        alert('Select the picture.')
+        return false
+      }
+      this.$router.push({
+        path: '/guest/sleeveit',
+        query: {
+          roomId: this.$route.query.roomId,
+          nickName: this.$route.query.nickName,
+          avatarId: this.avatar
+        }
+      })
     }
   }
 }
