@@ -23,14 +23,21 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       roomNo: ''
     }
   },
   methods: {
-    submit() {
-      this.$router.push('/host/report/result')
+    submit () {
+      this.$axios.$get('/sleeves/' + this.roomNo)
+        .then((data) => {
+          this.$router.push('/host/report/result?roomId=' + this.roomNo)
+        })
+        .catch((error) => {
+          console.log(error)
+          alert('No room has been found.')
+        })
     }
   }
 }

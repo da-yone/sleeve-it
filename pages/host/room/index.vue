@@ -28,13 +28,13 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       categories: ['textile', 'wildlife', 'transport']
     }
   },
   methods: {
-    select(category) {
+    select (category) {
       this.$router.push({ path: '/host/room/confirm', query: { category } })
     }
   }

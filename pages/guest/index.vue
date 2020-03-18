@@ -16,13 +16,13 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       roomNo: ''
     }
   },
   methods: {
-    select(category) {
+    select (category) {
       this.$router.push({ path: '/host/room/confirm', query: { category } })
     }
   }

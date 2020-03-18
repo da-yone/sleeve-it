@@ -25,14 +25,14 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       category: this.$route.query.category,
       avatars: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     }
   },
   methods: {
-    submit() {
+    submit () {
       this.$router.push('/guest/sleeveit')
     }
   }

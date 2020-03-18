@@ -25,13 +25,13 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       dummy: ''
     }
   },
   methods: {
-    submit() {
+    submit () {
       this.$router.push('/guest/complete')
     }
   }

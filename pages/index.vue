@@ -34,14 +34,14 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       id: '',
       password: ''
     }
   },
   methods: {
-    submit() {
+    submit () {
       this.$router.push('/host')
     }
   }

@@ -11,7 +11,7 @@
         v-row
           v-col
             v-card(tile align="center")
-              v-card-title {{roomNo}}
+              v-card-title {{roomId}}
         v-row
           v-col(align="center")
             h3.white--text
@@ -20,9 +20,12 @@
               | sleeve-it.netlify.com
         v-row.mt-6(justify="center")
           v-col(cols="10")
-            v-btn(color="black" @click="copy" :block="true")
+            v-btn(color="black" :block="true"
+              v-clipboard:copy="roomId"
+              v-clipboard:success="onCopy"
+              v-clipboard:error="onError")
               span.white--text Copy
-        v-row.mt-6(justify="center")
+        v-row(justify="center")
           v-col(cols="10")
             v-btn(to="/host" color="grey" :block="true" nuxt)
               span.white--text Top
@@ -30,14 +33,17 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      roomNo: 123456
+      roomId: this.$route.query.roomId
     }
   },
   methods: {
-    copy() {
+    onCopy () {
       alert('copied!')
+    },
+    onError () {
+      alert('copy failed.')
     }
   }
 }
