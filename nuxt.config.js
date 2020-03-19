@@ -3,7 +3,7 @@ export default {
   // Netlifyから環境変数を注入する際に必要
   env: {
     API_URL_PROD: process.env.API_URL_PROD,
-    API_FUNCTION_CODE: process.env.API_CODE
+    API_FUNCTION_CODE: process.env.API_FUNCTION_CODE
   },
   /*
    ** Headers of the page
