@@ -9,9 +9,8 @@
               br
               | with...
         v-row.mt-6
-          v-col
-            v-card(align="center")
-              v-img(:src="picture")
+          v-col(align="center")
+            v-img(:src="picture" width="142" height="142")
         v-row.mt-12(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")

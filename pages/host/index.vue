@@ -2,9 +2,9 @@
   v-container.sleeve-bg.pt-12
     v-row(justify="center" no-gutters)
       v-col(cols="10")
-        v-row
-          v-col
-            v-img(src="/logo.png")
+        v-row.mt-6
+          v-col(align="center")
+            v-img(src="/logo.png" width="254" height="170")
         v-row.mt-12
           v-col
             h2.white--text I want to ...

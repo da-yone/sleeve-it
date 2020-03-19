@@ -1,10 +1,10 @@
 <template lang="pug">
-  v-container.orange.pt-12
+  v-container.sleeve-bg.pt-12
     v-row(justify="center" no-gutters)
       v-col(cols="10" sm="4")
         v-row.mt-12(justify="center")
-          v-col(cols="10" align="center")
-            h2.white--text SLEEVE IT
+          v-col(align="center")
+            v-img(src="/logo.png" width="254" height="170")
         v-row.mt-12(justify="center")
           v-col(cols="10" align="center")
             v-text-field(v-model="roomNo" solo label="Room Number")

@@ -1,17 +1,16 @@
 <template lang="pug">
   v-container
-    v-app-bar(fixed app flat color="#ff6a00")
-      v-row(justify="center" align="center")
-        v-toolbar-title
-          span.white--text SLEEVE IT
-    v-row.mt-6(justify="center")
-      v-col(cols="11" sm="6")
+    v-app-bar(fixed app flat color="#e98065" height="64")
+      v-row
+        v-col(align="center")
+          v-img(src="/logo.png" width="96" height="64")
+    v-row(justify="center")
+      v-col(cols="9" sm="6" align="center")
         v-row(align="center" v-for="avatar in data" :key="avatar.id")
           v-col
-            v-avatar(tile color="grey" width="100" height="100")
-              span 100
+            v-img(:src="getPicture(avatar.id)" width="120" height="120")
           v-col
-            h3(align="center") {{ count(avatar.id) }}
+            h3(align="center") {{ avatar.count }}
           v-col
             p(v-for="person in avatar.persons" :key="person") {{ person }}
         v-row.mt-6
@@ -34,15 +33,15 @@ export default {
   data () {
     return {
       data: [
-        { id: 1, persons: [] },
-        { id: 2, persons: [] },
-        { id: 3, persons: [] },
-        { id: 4, persons: [] },
-        { id: 5, persons: [] },
-        { id: 6, persons: [] },
-        { id: 7, persons: [] },
-        { id: 8, persons: [] },
-        { id: 9, persons: [] }
+        { id: 1, persons: [], count: 0 },
+        { id: 2, persons: [], count: 0 },
+        { id: 3, persons: [], count: 0 },
+        { id: 4, persons: [], count: 0 },
+        { id: 5, persons: [], count: 0 },
+        { id: 6, persons: [], count: 0 },
+        { id: 7, persons: [], count: 0 },
+        { id: 8, persons: [], count: 0 },
+        { id: 9, persons: [], count: 0 }
       ]
     }
   },
@@ -51,6 +50,9 @@ export default {
     this.order()
   },
   methods: {
+    getPicture (id) {
+      return '/images/avatars/' + id + '.jpg'
+    },
     count (id) {
       return this.data[id - 1].persons.length
     },
@@ -58,13 +60,20 @@ export default {
       alert('download conmplete!')
     },
     order () {
+      // 集計
       this.data.forEach((d) => {
         this.avatars.forEach((a) => {
           if (d.id === parseInt(a.avatarId)) {
             d.persons.push(a.nickName)
+            d.count++
           }
         })
       })
+      // 並び替え
+      this.data.sort(this.compare)
+    },
+    compare (a, b) {
+      return b.count - a.count
     }
   }
 }
