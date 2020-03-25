@@ -10,7 +10,7 @@
               | with...
         v-row.mt-6
           v-col(align="center")
-            v-img(:src="picture" width="142" height="142")
+            v-img(:src="picture")
         v-row.mt-12(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
@@ -25,7 +25,7 @@
 export default {
   computed: {
     picture () {
-      return '/images/avatars/' + this.$route.query.avatarId + '.jpg'
+      return `/images/avatars/${this.$route.query.category}/${this.$route.query.avatarId}.jpg`
     }
   },
   methods: {

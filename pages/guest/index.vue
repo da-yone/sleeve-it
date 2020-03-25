@@ -25,7 +25,13 @@ export default {
     submit (category) {
       this.$axios.$get('/sleeves/' + this.roomNo)
         .then((data) => {
-          this.$router.push({ path: '/guest/nickname', query: { roomId: this.roomNo } })
+          this.$router.push({
+            path: '/guest/nickname',
+            query: {
+              roomId: this.roomNo,
+              category: data.sleeves.category
+            }
+          })
         })
         .catch((error) => {
           alert('No room has been found.')

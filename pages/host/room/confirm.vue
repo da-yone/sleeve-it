@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     getPicture (avatar) {
-      return '/images/avatars/' + avatar + '.jpg'
+      return `/images/avatars/${this.category}/${avatar}.jpg`
     },
     selectAvatar (avatar) {
       this.selected = avatar

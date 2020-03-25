@@ -10,8 +10,8 @@
               | depicts how I feel
         v-row.mt-6
           v-col(cols="4" v-for="avatar in avatars" :key="avatar")
-            v-card.filtered(
-              :class="{ picked: isSelected(avatar) }"
+            v-card(
+              :class="{ filtered: shouldFilter(avatar) }"
               align="center"
               @click="selectAvatar(avatar)")
               v-img(:src="getPicture(avatar)")
@@ -27,18 +27,21 @@ export default {
     return {
       category: this.$route.query.category,
       avatars: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-      selected: ''
+      selected: this.$route.query.avatarId || ''
     }
   },
   methods: {
     getPicture (avatar) {
-      return '/images/avatars/' + avatar + '.jpg'
+      return `/images/avatars/${this.category}/${avatar}.jpg`
     },
     selectAvatar (avatar) {
-      this.selected = avatar
+      // 選択済みの場合は選択解除、そうでない場合は設定
+      this.selected = (avatar == this.selected) ? '' : avatar
     },
-    isSelected (avatar) {
-      return avatar == this.selected
+    shouldFilter (avatar) {
+      // フィルターすべきかどうか
+      // 何らかの画像が選択されている状態かつ引数の画像でない場合
+      return this.selected && this.selected != avatar
     },
     submit () {
       if (!this.selected) {
@@ -50,6 +53,7 @@ export default {
         query: {
           roomId: this.$route.query.roomId,
           nickName: this.$route.query.nickName,
+          category: this.$route.query.category,
           avatarId: this.selected
         }
       })

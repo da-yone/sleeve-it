@@ -40,10 +40,10 @@ export default {
   },
   methods: {
     onCopy () {
-      alert('copied!')
+      alert('Copied!')
     },
     onError () {
-      alert('copy failed.')
+      alert('Sorry... Copy failed.')
     }
   }
 }

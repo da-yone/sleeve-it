@@ -5,10 +5,11 @@
         v-col(align="center")
           v-img(src="/logo.png" width="96" height="64")
     v-row(justify="center")
-      v-col(cols="9" sm="6" align="center")
+      v-col(cols="10" align="center")
         v-row(align="center" v-for="avatar in data" :key="avatar.id")
           v-col
-            v-img(:src="getPicture(avatar.id)" width="120" height="120")
+            v-card
+              v-img(:src="getPicture(avatar.id)" width="120" height="120")
           v-col
             h3(align="center") {{ avatar.count }}
           v-col
@@ -26,9 +27,12 @@
 <script>
 export default {
   async asyncData ({ $axios, query }) {
-    const avatars = await $axios.$get('/sleeves/' + query.roomId)
-      .then(data => data.sleeves.avatars)
-    return { avatars }
+    const sleeves = await $axios.$get('/sleeves/' + query.roomId)
+      .then(data => data.sleeves)
+    return {
+      category: sleeves.category,
+      avatars: sleeves.avatars
+    }
   },
   data () {
     return {
@@ -51,7 +55,7 @@ export default {
   },
   methods: {
     getPicture (id) {
-      return '/images/avatars/' + id + '.jpg'
+      return `/images/avatars/${this.category}/${id}.jpg`
     },
     count (id) {
       return this.data[id - 1].persons.length

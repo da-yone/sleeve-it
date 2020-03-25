@@ -16,11 +16,6 @@
 
 <script>
 export default {
-  data () {
-    return {
-      dummy: ''
-    }
-  },
   methods: {
     submit () {
       this.$router.push('/guest/complete')

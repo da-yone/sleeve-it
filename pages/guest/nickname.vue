@@ -25,7 +25,11 @@ export default {
     submit (category) {
       this.$router.push({
         path: '/guest/picture',
-        query: { nickName: this.nickName, roomId: this.$route.query.roomId }
+        query: {
+          nickName: this.nickName,
+          roomId: this.$route.query.roomId,
+          category: this.$route.query.category
+        }
       })
     }
   }
