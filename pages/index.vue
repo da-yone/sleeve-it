@@ -1,9 +1,9 @@
 <template lang="pug">
   v-container
-    v-app-bar(fixed app flat color="#e98065" height="64")
+    v-app-bar(fixed app flat color="#e98065" height="70")
       v-row
         v-col(align="center")
-          v-img(src="/logo.png" width="96" height="64")
+          v-img(src="/header.png" width="100" height="60")
     v-row(no-gutters)
       v-col(cols="12" sm="6")
         v-form

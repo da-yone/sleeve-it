@@ -35,7 +35,8 @@ export default {
    */
   plugins: [
     '@/plugins/axios.js',
-    '@/plugins/clipboard.js'
+    '@/plugins/clipboard.js',
+    '@/plugins/html2canvas.js'
   ],
   /*
    ** Nuxt.js dev-modules

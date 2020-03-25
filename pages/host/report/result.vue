@@ -1,23 +1,28 @@
 <template lang="pug">
-  v-container
-    v-app-bar(fixed app flat color="#e98065" height="64")
+  div
+    v-container(ref="print")
       v-row
-        v-col(align="center")
-          v-img(src="/logo.png" width="96" height="64")
+        v-app-bar(absolute flat color="#e98065" height="70")
+          v-row
+            v-col(align="center")
+              v-img(src="/header.png" width="100" height="60")
+        v-row.mt-12.pt-6(justify="center")
+          v-col(cols="10" align="center")
+            v-row(align="center" v-for="avatar in data" :key="avatar.id")
+              v-col
+                v-card
+                  v-img(:src="getPicture(avatar.id)" width="120" height="120")
+              v-col
+                h3(align="center") {{ avatar.count }}
+              v-col
+                p(v-for="person in avatar.persons" :key="person") {{ person }}
     v-row(justify="center")
-      v-col(cols="10" align="center")
-        v-row(align="center" v-for="avatar in data" :key="avatar.id")
+      v-col(cols="10")
+        v-row
           v-col
-            v-card
-              v-img(:src="getPicture(avatar.id)" width="120" height="120")
-          v-col
-            h3(align="center") {{ avatar.count }}
-          v-col
-            p(v-for="person in avatar.persons" :key="person") {{ person }}
-        v-row.mt-6
-          v-col
-            v-btn(color="black" :block="true")
-              span.white--text Download JPEG
+            v-btn(color="black" :block="true" @click="download")
+                span.white--text Download JPEG
+            a(ref="download" download="report.jpg")
         v-row
           v-col
             v-btn(to="/" color="grey" :block="true")
@@ -78,6 +83,17 @@ export default {
     },
     compare (a, b) {
       return b.count - a.count
+    },
+    async download () {
+      const printEl = this.$refs.print
+      const downloadEl = this.$refs.download
+      printEl.classList.add('pt-3')
+      // HTML2CANVASで画像化 (DataURL)
+      const imageUrl = await this.$html2canvas(printEl, { type: 'dataURL' })
+      // ダミーのaタグのhref属性に設定
+      downloadEl.href = imageUrl
+      // aタグのクリックイベントを起こす
+      downloadEl.click()
     }
   }
 }
