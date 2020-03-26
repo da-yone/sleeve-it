@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container.sleeve-bg.pt-12
+  v-container.sleeve-bg
     v-row(justify="center" no-gutters)
       v-col(cols="10" sm="4")
         v-row.mt-12(justify="center")

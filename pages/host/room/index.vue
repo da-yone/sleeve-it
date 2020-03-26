@@ -1,8 +1,8 @@
 <template lang="pug">
-  v-container.blue.pt-12
+  v-container.blue-gradient
     v-row(justify="center" no-gutters)
       v-col(cols="11")
-        v-row
+        v-row.mt-6
           v-col
             h2.white--text
               | Select ONE category
@@ -14,7 +14,7 @@
           v-row(align="center" @click="select(i)")
             v-col(cols="5")
               v-card(align="center")
-                v-img(:src="getPicture(i)")
+                v-img(:src="getPicture(i)" width="130" height="130")
             v-col
               h3.white--text {{ category }}
           v-row

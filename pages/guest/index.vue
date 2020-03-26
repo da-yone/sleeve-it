@@ -2,7 +2,7 @@
   v-container.sleeve-bg.pt-12
     v-row(justify="center" no-gutters)
       v-col(cols="10" sm="4")
-        v-row.mt-12(justify="center")
+        v-row.mt-12
           v-col(align="center")
             v-img(src="/logo.png" width="254" height="170")
         v-row.mt-12(justify="center")
@@ -12,6 +12,10 @@
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
               span.white--text Enter
+        v-row(justify="center")
+          v-col(cols="10")
+            v-btn(to="/" color="grey" :block="true" nuxt)
+              span.white--text TOP
 </template>
 
 <script>

@@ -9,15 +9,14 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    title: 'Sleeve It',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Sleeve It'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -68,7 +67,8 @@ export default {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    treeShake: true
+    treeShake: true,
+    customVariables: ['@/assets/css/variables.scss']
   },
   /*
    ** nuxt webfont module configuration
@@ -76,7 +76,7 @@ export default {
    */
   webfontloader: {
     google: {
-      families: ['Quicksand:400,700&display=swap']
+      families: ['Raleway:400,700&display=swap']
     }
   },
   // PWA

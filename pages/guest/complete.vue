@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container.blue.pt-12
+  v-container.blue-gradient
     v-row(justify="center" no-gutters)
       v-col(cols="11" sm="4")
         v-row.mt-12(justify="center")

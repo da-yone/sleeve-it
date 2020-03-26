@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container.blue.pt-12
+  v-container.blue-gradient
     v-row(justify="center" no-gutters)
       v-col(cols="11" sm="4")
         v-row.mt-6
@@ -14,7 +14,7 @@
               :class="{ filtered: shouldFilter(avatar) }"
               align="center"
               @click="selectAvatar(avatar)")
-              v-img(:src="getPicture(avatar)")
+              v-img(:src="getPicture(avatar)" width="100" height="100")
         v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")

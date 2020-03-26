@@ -1,8 +1,8 @@
 <template lang="pug">
-  v-container.blue.pt-12
+  v-container.blue-gradient
     v-row(justify="center" no-gutters)
       v-col(cols="11" sm="4")
-        v-row.mt-12
+        v-row.mt-6
           v-col
             h2.white--text
               | Identify the room,
@@ -15,7 +15,7 @@
           v-col(cols="10")
             v-btn(color="black" @click="submit" :block="true")
               span.white--text See the report
-        v-row.mt-6(justify="center")
+        v-row(justify="center")
           v-col(cols="10")
             v-btn(to="/host" color="grey" :block="true" nuxt)
               span.white--text Back

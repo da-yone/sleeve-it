@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-container.blue.pt-12
+  v-container.blue-gradient
     v-row(justify="center" no-gutters)
       v-col(cols="11" sm="4")
         v-row.mt-6
@@ -10,7 +10,7 @@
               | with...
         v-row.mt-6
           v-col(align="center")
-            v-img(:src="picture")
+            v-img(:src="picture" width="350" height="350")
         v-row.mt-12(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
