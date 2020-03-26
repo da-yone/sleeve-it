@@ -79,6 +79,12 @@ export default {
       families: ['Quicksand:400,700&display=swap']
     }
   },
+  // PWA
+  manifest: {
+    name: 'SleeveIt',
+    lang: 'en',
+    display: 'standalone'
+  },
   /*
    ** Build configuration
    */
