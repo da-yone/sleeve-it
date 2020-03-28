@@ -37,7 +37,7 @@ export default {
             }
           })
         })
-        .catch((error) => {
+        .catch(() => {
           alert('No room has been found.')
         })
     }

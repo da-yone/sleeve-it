@@ -22,9 +22,9 @@
       v-col(cols="10")
         v-row
           v-col
-            v-btn(color="black" :block="true" @click="download")
+            v-btn(color="black" :block="true" @click="downloadCapture")
                 span.white--text Download JPEG
-            a(ref="download" download="report.jpg")
+            a(ref="downloadLink" download="report.jpg")
         v-row
           v-col
             v-btn(to="/" color="grey" :block="true")
@@ -68,7 +68,7 @@ export default {
       return this.data[id - 1].persons.length
     },
     download () {
-      alert('download conmplete!')
+      alert('download complete!')
     },
     order () {
       // 集計
@@ -80,16 +80,15 @@ export default {
           }
         })
       })
-      console.log(this.data)
       // 並び替え
       this.data.sort(this.compare)
     },
     compare (a, b) {
       return b.count - a.count
     },
-    async download () {
+    async downloadCapture () {
       const printEl = this.$refs.print
-      const downloadEl = this.$refs.download
+      const downloadEl = this.$refs.downloadLink
       printEl.classList.add('pt-3')
       // HTML2CANVASで画像化 (DataURL)
       const imageUrl = await this.$html2canvas(printEl, { type: 'dataURL' })

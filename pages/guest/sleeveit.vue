@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       feeling: ''
     }
@@ -48,12 +48,12 @@ export default {
         avatarId: this.$route.query.avatarId,
         feeling: this.feeling
       })
-      .then((data) => {
-        this.$router.push('/guest/complete')
-      })
-      .catch((error) => {
-        alert('Sorry something\'s wrong.')
-      })
+        .then((data) => {
+          this.$router.push('/guest/complete')
+        })
+        .catch(() => {
+          alert('Sorry something\'s wrong.')
+        })
     }
   }
 }

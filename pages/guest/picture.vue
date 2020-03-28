@@ -40,12 +40,12 @@ export default {
     },
     selectAvatar (avatar) {
       // 選択済みの場合は選択解除、そうでない場合は設定
-      this.selected = (avatar == this.selected) ? '' : avatar
+      this.selected = (avatar === this.selected) ? '' : avatar
     },
     shouldFilter (avatar) {
       // フィルターすべきかどうか
       // 何らかの画像が選択されている状態かつ引数の画像でない場合
-      return this.selected && this.selected != avatar
+      return this.selected && this.selected !== avatar
     },
     submit () {
       if (!this.selected) {

@@ -39,7 +39,7 @@ export default {
       this.selected = avatar
     },
     isSelected (avatar) {
-      return avatar == this.selected
+      return avatar === this.selected
     },
     async submit () {
       await this.$axios.$post('/sleeves', { category: this.category })

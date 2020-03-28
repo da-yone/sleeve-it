@@ -34,8 +34,7 @@ export default {
         .then((data) => {
           this.$router.push({ path: '/host/report/result', query: { roomId: this.roomNo } })
         })
-        .catch((error) => {
-          console.log(error)
+        .catch(() => {
           alert('No room has been found.')
         })
     }
