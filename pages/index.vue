@@ -16,7 +16,7 @@
           v-row
             v-col
               v-btn(color="black" :block="true" @click="submit")
-                span.white--text Log in
+                span.white--text Host Log in
           v-row
             v-divider
           v-row

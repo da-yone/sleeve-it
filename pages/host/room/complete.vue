@@ -5,9 +5,9 @@
         v-row.mt-6
           v-col
             h2.white--text
-              | Join at,
+              | Room Created!
               br
-              | room number
+              | Your room number is...
         v-row
           v-col
             v-card(tile align="center")
@@ -15,9 +15,9 @@
         v-row
           v-col(align="center")
             h3.white--text
-              | in
+              | Use the room number
               br
-              | sleeve-it.netlify.com
+              | to access Host Dashboard from Home
         v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true"
@@ -28,7 +28,7 @@
         v-row(justify="center")
           v-col(cols="10")
             v-btn(to="/" color="grey" :block="true" nuxt)
-              span.white--text Top
+              span.white--text Home
 </template>
 
 <script>

@@ -26,7 +26,7 @@
         v-row
           v-col
             v-btn(to="/" color="grey" :block="true")
-              span.white--text TOP
+              span.white--text Home
 </template>
 
 <script>

@@ -12,6 +12,10 @@
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
               span.white--text Ready
+        v-row(justify="center")
+          v-col(cols="10")
+            v-btn(to="/guest" color="grey" :block="true" nuxt)
+              span.white--text Back
 </template>
 
 <script>

@@ -19,6 +19,10 @@
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
               span.white--text Pick
+        v-row(justify="center")
+          v-col(cols="10")
+            v-btn(:to="{ path: '/guest/nickname', query: this.$route.query }" color="grey" :block="true" nuxt)
+              span.white--text Back
 </template>
 
 <script>

@@ -15,7 +15,7 @@
         v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
-              span.white--text Fine! Create a room
+              span.white--text Create a Room
         v-row(justify="center")
           v-col(cols="10")
             v-btn(to="/host/room" color="grey" :block="true" nuxt)

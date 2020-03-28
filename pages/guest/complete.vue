@@ -11,7 +11,7 @@
         v-row.mt-12(justify="center")
           v-col(cols="8")
             v-btn(to="/" color="grey" :block="true" nuxt)
-              span.white--text Top
+              span.white--text Home
 </template>
 
 <script>
