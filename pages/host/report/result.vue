@@ -7,7 +7,7 @@
             v-col(align="center")
               v-img(src="/header.png" width="100" height="60")
         v-row.mt-12.pt-6(justify="center")
-          v-col(cols="10" align="center")
+          v-col(cols="10")
             v-row(align="center" v-for="avatar in data" :key="avatar.id")
               v-col
                 v-card
@@ -15,7 +15,9 @@
               v-col
                 h3(align="center") {{ avatar.count }}
               v-col
-                p(v-for="person in avatar.persons" :key="person") {{ person }}
+                div(v-for="person in avatar.persons" :key="person.nickName")
+                  h4 {{ person.nickName }}
+                  span {{ person.feeling }}
     v-row(justify="center")
       v-col(cols="10")
         v-row
@@ -73,11 +75,12 @@ export default {
       this.data.forEach((d) => {
         this.avatars.forEach((a) => {
           if (d.id === parseInt(a.avatarId)) {
-            d.persons.push(a.nickName)
+            d.persons.push({ nickName: a.nickName, feeling: a.feeling })
             d.count++
           }
         })
       })
+      console.log(this.data)
       // 並び替え
       this.data.sort(this.compare)
     },
