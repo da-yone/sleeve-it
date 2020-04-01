@@ -6,24 +6,24 @@
           v-row
             v-col(align="center")
               v-img(src="/header.png" width="100" height="60")
-        v-row.mt-12.pt-6(justify="center")
-          v-col(cols="10")
-            v-row(align="center" v-for="avatar in data" :key="avatar.id")
-              v-col
-                v-card
-                  v-img(:src="getPicture(avatar.id)" width="120" height="120")
-              v-col
-                h3(align="center") {{ avatar.count }}
-              v-col
-                div(v-for="person in avatar.persons" :key="person.nickName")
-                  h4 {{ person.nickName }}
-                  span {{ person.feeling }}
+        v-row.mt-6.pt-6(justify="center")
+          v-col(cols="11")
+            v-card.mt-12(raised v-for="avatar in data" :key="avatar.id")
+              v-row(align="center")
+                v-col.pt-0.pb-0
+                  v-img(:src="getPicture(avatar.id)" max-width="400" max-height="200")
+                    p.count {{ avatar.count }}
+              v-row(v-for="person in avatar.persons" :key="person.nickName")
+                v-col.pt-0
+                  p.comment.pl-3.pr-3.mt-3
+                    strong {{ person.nickName }}
+                    span {{ person.feeling }}
     v-row(justify="center")
       v-col(cols="10")
         v-row
           v-col
             v-btn(color="black" :block="true" @click="downloadCapture")
-                span.white--text Download JPEG
+              span.white--text Download JPEG
             a(ref="downloadLink" download="report.jpg")
         v-row
           v-col
@@ -100,3 +100,31 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translate(90%, 50%);
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+  font-size: 5rem;
+  font-weight: 400;
+  color: whitesmoke;
+  font-weight: bold;
+}
+.comment {
+  word-break: break-all;
+  line-height: 1.2;
+
+  strong {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.025rem;
+  }
+}
+</style>
