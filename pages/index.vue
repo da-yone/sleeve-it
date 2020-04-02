@@ -4,8 +4,8 @@
       v-row
         v-col(align="center")
           v-img(src="/header.png" width="100" height="60")
-    v-row(no-gutters)
-      v-col(cols="12" sm="6")
+    v-row(justify="center")
+      v-col(cols="10")
         v-form
           v-row
             v-col

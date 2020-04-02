@@ -1,7 +1,7 @@
 <template lang="pug">
   v-container.blue-gradient
     v-row(justify="center" no-gutters)
-      v-col(cols="11" sm="4")
+      v-col(cols="11")
         v-row.mt-6
           v-col
             h2.white--text
@@ -11,7 +11,7 @@
         v-row.mt-6
           v-col(cols="4" v-for="avatar in avatars" :key="avatar")
             v-card(align="center")
-              v-img(:src="getPicture(avatar)" width="100" height="100")
+              v-img(:src="getPicture(avatar)" max-width="130")
         v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
@@ -42,8 +42,10 @@ export default {
       return avatar === this.selected
     },
     async submit () {
+      this.$nuxt.$loading.start()
       await this.$axios.$post('/sleeves', { category: this.category })
         .then((data) => {
+          this.$nuxt.$loading.finish()
           this.$router.push({ path: '/host/room/complete', query: { roomId: data.roomId } })
         })
     }

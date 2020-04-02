@@ -7,15 +7,15 @@
             v-col(align="center")
               v-img(src="/header.png" width="100" height="60")
         v-row.mt-6.pt-6(justify="center")
-          v-col(cols="11")
+          v-col(cols="10")
             v-card.mt-12(raised v-for="avatar in data" :key="avatar.id")
-              v-row(align="center")
+              v-row.mb-6(align="center")
                 v-col.pt-0.pb-0
                   v-img(:src="getPicture(avatar.id)" max-width="400" max-height="200")
                     p.count {{ avatar.count }}
               v-row(v-for="person in avatar.persons" :key="person.nickName")
                 v-col.pt-0
-                  p.comment.pl-3.pr-3.mt-3
+                  p.comment.pl-3.pr-3.mb-0
                     strong {{ person.nickName }}
                     span {{ person.feeling }}
     v-row(justify="center")
@@ -87,15 +87,18 @@ export default {
       return b.count - a.count
     },
     async downloadCapture () {
+      this.$nuxt.$loading.start()
       const printEl = this.$refs.print
       const downloadEl = this.$refs.downloadLink
       printEl.classList.add('pt-3')
       // HTML2CANVASで画像化 (DataURL)
-      const imageUrl = await this.$html2canvas(printEl, { type: 'dataURL' })
+      const imageUrl = await this.$html2canvas(printEl)
+        .then(canvas => canvas.toDataURL('image/jpeg', 0.2))
       // ダミーのaタグのhref属性に設定
       downloadEl.href = imageUrl
       // aタグのクリックイベントを起こす
       downloadEl.click()
+      this.$nuxt.$loading.finish()
     }
   }
 }

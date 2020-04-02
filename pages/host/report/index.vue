@@ -29,9 +29,11 @@ export default {
     }
   },
   methods: {
-    submit () {
-      this.$axios.$get('/sleeves/' + this.roomNo)
+    async submit () {
+      this.$nuxt.$loading.start()
+      await this.$axios.$get('/sleeves/' + this.roomNo)
         .then((data) => {
+          this.$nuxt.$loading.finish()
           this.$router.push({ path: '/host/report/result', query: { roomId: this.roomNo } })
         })
         .catch(() => {

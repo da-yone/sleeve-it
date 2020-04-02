@@ -42,13 +42,15 @@ export default {
     }
   },
   methods: {
-    submit () {
-      this.$axios.$patch('/sleeves/' + this.$route.query.roomId, {
+    async submit () {
+      this.$nuxt.$loading.start()
+      await this.$axios.$patch('/sleeves/' + this.$route.query.roomId, {
         nickName: this.$route.query.nickName,
         avatarId: this.$route.query.avatarId,
         feeling: this.feeling
       })
         .then((data) => {
+          this.$nuxt.$loading.finish()
           this.$router.push('/guest/complete')
         })
         .catch(() => {
