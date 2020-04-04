@@ -2,33 +2,34 @@
   div
     v-container(ref="print")
       v-row
-        v-app-bar(absolute flat color="#e98065" height="70")
+        v-col
+          v-app-bar(absolute flat color="#e98065" height="70")
+            v-row
+              v-col(align="center")
+                v-img(src="/header.png" width="100" height="60")
+          v-row.mt-6.pt-6(justify="center")
+            v-col(cols="10")
+              v-card.mt-12(raised v-for="avatar in data" :key="avatar.id")
+                v-row.mb-6(align="center")
+                  v-col.pt-0.pb-0
+                    v-img(:src="getPicture(avatar.id)" max-width="400" max-height="200")
+                      p.count {{ avatar.count }}
+                v-row(v-for="person in avatar.persons" :key="person.nickName")
+                  v-col.pt-0
+                    p.comment.pl-3.pr-3.mb-0
+                      strong {{ person.nickName }}
+                      span {{ person.feeling }}
+      v-row(justify="center")
+        v-col(cols="10")
           v-row
-            v-col(align="center")
-              v-img(src="/header.png" width="100" height="60")
-        v-row.mt-6.pt-6(justify="center")
-          v-col(cols="10")
-            v-card.mt-12(raised v-for="avatar in data" :key="avatar.id")
-              v-row.mb-6(align="center")
-                v-col.pt-0.pb-0
-                  v-img(:src="getPicture(avatar.id)" max-width="400" max-height="200")
-                    p.count {{ avatar.count }}
-              v-row(v-for="person in avatar.persons" :key="person.nickName")
-                v-col.pt-0
-                  p.comment.pl-3.pr-3.mb-0
-                    strong {{ person.nickName }}
-                    span {{ person.feeling }}
-    v-row(justify="center")
-      v-col(cols="10")
-        v-row
-          v-col
-            v-btn(color="black" :block="true" @click="downloadCapture")
-              span.white--text Download JPEG
-            a(ref="downloadLink" download="report.jpg")
-        v-row
-          v-col
-            v-btn(to="/" color="grey" :block="true")
-              span.white--text Home
+            v-col
+              v-btn(color="black" :block="true" @click="downloadCapture")
+                span.white--text Download JPEG
+              a(ref="downloadLink" download="report.jpg")
+          v-row
+            v-col
+              v-btn(to="/" color="grey" :block="true")
+                span.white--text Home
 </template>
 
 <script>
