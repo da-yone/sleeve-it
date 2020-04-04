@@ -81,9 +81,12 @@ export default {
   },
   // PWA
   manifest: {
-    name: 'SleeveIt',
+    name: 'sleeve-it',
+    title: 'sleeve-it',
     lang: 'en',
-    display: 'standalone'
+    display: 'standalone',
+    scope: '/',
+    start_url: '/'
   },
   /*
    ** Build configuration
