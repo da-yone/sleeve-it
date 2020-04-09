@@ -5,7 +5,7 @@
         v-col(align="center")
           v-img(src="/header.png" width="100" height="60")
     v-row(justify="center")
-      v-col(cols="10")
+      v-col(cols="11")
         v-form
           v-row
             v-col
@@ -20,12 +20,12 @@
           v-row
             v-col
               v-btn(color="blue" :block="true" @click="submit")
-                v-icon.white--text.mr-3 mdi-facebook
+                v-icon.white--text.mr-2 mdi-facebook
                 span.white--text Host Log in with Facebook
           v-row
             v-col
               v-btn(color="red" :block="true" @click="submit")
-                v-icon.white--text.mr-3 mdi-google
+                v-icon.white--text.mr-2 mdi-google
                 span.white--text Host Log in with Google
           v-row
             v-divider
