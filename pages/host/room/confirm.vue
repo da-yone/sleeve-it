@@ -9,9 +9,9 @@
               br
               | there are...
         v-row.mt-6
-          v-col(cols="4" v-for="avatar in avatars" :key="avatar")
-            v-card(align="center")
-              v-img(:src="getPicture(avatar)" max-width="130")
+          v-col(cols="3" v-for="avatar in avatars" :key="avatar")
+            v-card(align="center" width="100")
+              v-img(:src="getPicture(avatar)" width="100")
         v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")

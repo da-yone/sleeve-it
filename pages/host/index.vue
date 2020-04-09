@@ -15,10 +15,10 @@
         v-row
           v-col
             v-btn(to="/host/report" color="black" :block="true" nuxt)
-              span.white--text See a report!
+              span.white--text Access Dashboard!
         v-row
           v-col
-            v-btn(to="/guest" color="grey" :block="true" nuxt)
-              span.white--text Guest
+            v-btn(to="/" color="grey" :block="true" nuxt)
+              span.white--text Back
 
 </template>

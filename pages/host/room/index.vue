@@ -13,7 +13,7 @@
         template(v-for="(category, i) in categories")
           v-row(align="center" @click="select(i)")
             v-col(cols="5")
-              v-card(align="center")
+              v-card(align="center" width="150")
                 v-img(:src="getPicture(i)" width="150")
             v-col(align="center")
               h3.white--text {{ category }}

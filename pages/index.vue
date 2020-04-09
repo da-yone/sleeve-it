@@ -20,10 +20,12 @@
           v-row
             v-col
               v-btn(color="blue" :block="true" @click="submit")
+                v-icon.white--text.mr-3 mdi-facebook
                 span.white--text Host Log in with Facebook
           v-row
             v-col
               v-btn(color="red" :block="true" @click="submit")
+                v-icon.white--text.mr-3 mdi-google
                 span.white--text Host Log in with Google
           v-row
             v-divider
