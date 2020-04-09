@@ -8,10 +8,9 @@
               | In the category,
               br
               | there are...
-        v-row.mt-6
-          v-col(cols="3" v-for="avatar in avatars" :key="avatar")
-            v-card(align="center" width="100")
-              v-img(:src="getPicture(avatar)" width="100")
+        v-row.images.mt-6
+          v-col.pa-0(cols="4" v-for="avatar in avatars" :key="avatar")
+            v-img(:src="getPicture(avatar)")
         v-row.mt-6(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
@@ -52,3 +51,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.images {
+  opacity: 0.8;
+}
+</style>

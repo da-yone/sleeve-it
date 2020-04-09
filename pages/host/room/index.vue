@@ -1,7 +1,7 @@
 <template lang="pug">
   v-container.blue-gradient
     v-row(justify="center" no-gutters)
-      v-col(cols="10")
+      v-col(cols="11")
         v-row.mt-6
           v-col
             h2.white--text
@@ -15,8 +15,9 @@
             v-col(cols="5")
               v-card(align="center" width="150")
                 v-img(:src="getPicture(i)" width="150")
-            v-col(align="center")
+            v-col
               h3.white--text {{ category }}
+              v-icon(color="white") mdi-chevron-right
           v-row
             v-divider
         v-row.mt-6(justify="center")
