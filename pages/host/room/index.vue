@@ -17,7 +17,6 @@
                 v-img(:src="getPicture(i)" width="150")
             v-col
               h3.white--text {{ category }}
-              v-icon(color="white") mdi-chevron-right
           v-row
             v-divider
         v-row.mt-6(justify="center")
