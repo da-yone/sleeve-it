@@ -18,16 +18,6 @@
               v-btn(color="black" :block="true" @click="submit")
                 span.white--text Host Log in
           v-row
-            v-col
-              v-btn(color="blue" :block="true" @click="submit")
-                v-icon.white--text.mr-2 mdi-facebook
-                span.white--text Host Log in with Facebook
-          v-row
-            v-col
-              v-btn(color="red" :block="true" @click="submit")
-                v-icon.white--text.mr-2 mdi-google
-                span.white--text Host Log in with Google
-          v-row
             v-divider
           v-row
             v-col(align="center")

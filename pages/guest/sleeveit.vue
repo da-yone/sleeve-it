@@ -16,9 +16,9 @@
             v-text-field(
               solo
               counter
-              placeholder="How you feel..."
+              placeholder="What I see in this picture..."
               v-model="feeling"
-              maxlength="50")
+              maxlength="80")
         v-row(justify="center")
           v-col(cols="10")
             v-btn(color="black" :block="true" @click="submit")
