@@ -10,13 +10,13 @@
               | you'll ask about
         v-row.mt-6
           v-divider
-        template(v-for="(category, i) in categories")
-          v-row(align="center" @click="select(i)")
+        template(v-for="category in randoms")
+          v-row(align="center" @click="select(category.id)")
             v-col(cols="5")
               v-card(align="center" width="150")
-                v-img(:src="getPicture(i)" width="150")
+                v-img(:src="getPicture(category.id)" width="150")
             v-col
-              h3.white--text {{ category }}
+              h3.white--text {{ category.name }}
           v-row
             v-divider
         v-row.mt-6(justify="center")
@@ -30,35 +30,41 @@ export default {
   data () {
     return {
       categories: [
-        'Jungle Book',
-        'Run Run Go Run!',
-        'Going Viral',
-        'Adventure Time!',
-        'Are You Saving That Dessert For Me',
-        'Careful What You Wish For',
-        'Cats Are Cute Too I Guess...',
-        'DOGGO!',
-        'Etched In Stone',
-        'GAME ON!',
-        'Living My Best Life',
-        'Music for the Soul',
-        'Oh Baby',
-        'Take Me To Wonderland',
-        'Wait... I did that Last Night',
-        'Walk In My Shoes',
-        'Weather Report',
-        'Werk Werk Werk!',
-        'When the Relatives Come Over',
-        'Yeah... Me Neither'
+        { id: 1, name: 'Jungle Book' },
+        { id: 2, name: 'Run Run Go Run!' },
+        { id: 3, name: 'Going Viral' },
+        { id: 4, name: 'Adventure Time!' },
+        { id: 5, name: 'Are You Saving That Dessert For Me' },
+        { id: 6, name: 'Careful What You Wish For' },
+        { id: 7, name: 'Cats Are Cute Too I Guess...' },
+        { id: 8, name: 'DOGGO!' },
+        { id: 9, name: 'Etched In Stone' },
+        { id: 10, name: 'GAME ON!' },
+        { id: 11, name: 'Living My Best Life' },
+        { id: 12, name: 'Music for the Soul' },
+        { id: 13, name: 'Oh Baby' },
+        { id: 14, name: 'Take Me To Wonderland' },
+        { id: 15, name: 'Wait... I did that Last Night' },
+        { id: 16, name: 'Walk In My Shoes' },
+        { id: 17, name: 'Weather Report' },
+        { id: 18, name: 'Werk Werk Werk!' },
+        { id: 19, name: 'When the Relatives Come Over' },
+        { id: 20, name: 'Yeah... Me Neither' }
       ]
+    }
+  },
+  computed: {
+    randoms () {
+      const categories = this.categories
+      return categories.sort(() => Math.random() - 0.5)
     }
   },
   methods: {
     getPicture (category) {
-      return '/images/categories/' + (category + 1) + '.jpg'
+      return '/images/categories/' + category + '.jpg'
     },
     select (category) {
-      this.$router.push({ path: '/host/room/confirm', query: { category: category + 1 } })
+      this.$router.push({ path: '/host/room/confirm', query: { category } })
     }
   }
 }
