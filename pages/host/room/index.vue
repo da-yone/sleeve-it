@@ -29,7 +29,28 @@
 export default {
   data () {
     return {
-      categories: ['Jungle Book', 'Run Run Go Run!', 'Going Viral']
+      categories: [
+        'Jungle Book',
+        'Run Run Go Run!',
+        'Going Viral',
+        'Adventure Time!',
+        'Are You Saving That Dessert For Me',
+        'Careful What You Wish For',
+        'Cats Are Cute Too I Guess...',
+        'DOGGO!',
+        'Etched In Stone',
+        'GAME ON!',
+        'Living My Best Life',
+        'Music for the Soul',
+        'Oh Baby',
+        'Take Me To Wonderland',
+        'Wait... I did that Last Night',
+        'Walk In My Shoes',
+        'Weather Report',
+        'Werk Werk Werk!',
+        'When the Relatives Come Over',
+        'Yeah... Me Neither'
+      ]
     }
   },
   methods: {
