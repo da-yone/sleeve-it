@@ -7,12 +7,12 @@
             v-row
               v-col(align="center")
                 v-img(src="/header.png" width="100" height="60")
-          v-row.mt-6.pt-6(justify="center")
-            v-col.mt-12(raised v-for="avatar in data" :key="avatar.id" md="4")
+          v-row.mt-6.pt-6
+            v-col.mt-3(raised v-for="avatar in data" :key="avatar.id" md="3")
               v-card
                 v-row.mb-6(align="center")
                   v-col.pt-0.pb-0(align="center")
-                    v-img(:src="getPicture(avatar.id)" max-width="400" max-height="200")
+                    v-img(:src="getPicture(avatar.id)" max-width="360" max-height="150")
                       p.count {{ avatar.count }}
                 v-row(v-for="person in avatar.persons" :key="person.nickName")
                   v-col.pt-0
@@ -112,7 +112,7 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
-  transform: translate(45%, 50%);
+  transform: translate(45%, 30%);
   margin-right: 1rem;
   margin-bottom: 2rem;
   font-size: 5rem;
