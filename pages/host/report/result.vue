@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    v-container(ref="print")
+    div.mr-2.ml-2(ref="print")
       v-row
         v-col
           v-app-bar(absolute flat color="#e98065" height="70")
@@ -8,10 +8,10 @@
               v-col(align="center")
                 v-img(src="/header.png" width="100" height="60")
           v-row.mt-6.pt-6(justify="center")
-            v-col(cols="10")
-              v-card.mt-12(raised v-for="avatar in data" :key="avatar.id")
+            v-col.mt-12(raised v-for="avatar in data" :key="avatar.id" md="4")
+              v-card
                 v-row.mb-6(align="center")
-                  v-col.pt-0.pb-0
+                  v-col.pt-0.pb-0(align="center")
                     v-img(:src="getPicture(avatar.id)" max-width="400" max-height="200")
                       p.count {{ avatar.count }}
                 v-row(v-for="person in avatar.persons" :key="person.nickName")
@@ -112,7 +112,7 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
-  transform: translate(90%, 50%);
+  transform: translate(45%, 50%);
   margin-right: 1rem;
   margin-bottom: 2rem;
   font-size: 5rem;
