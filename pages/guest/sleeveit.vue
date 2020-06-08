@@ -16,7 +16,7 @@
             v-text-field(
               solo
               counter
-              placeholder="What I see in this picture..."
+              placeholder="I chose this picture because..."
               v-model="feeling"
               maxlength="80")
         v-row(justify="center")
